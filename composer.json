@@ -62,6 +62,7 @@
         "drupal/twig_tweak": "^3.1",
         "drupal/views_ajax_history": "^1.6",
         "drush/drush": "^10.0",
+        "fourkitchens/project_ci": "^0.4.2",
         "npm-asset/blazy": "^1.8",
         "npm-asset/dropzone": "^5.5.1",
         "npm-asset/imagesloaded": "^3.2.0",
