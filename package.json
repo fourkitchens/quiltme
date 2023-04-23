@@ -9,7 +9,7 @@
     "husky:pre-commit": "npm run lint",
     "import-data": "./scripts/sous/import-data.sh",
     "lint:js": "eslint --color --no-error-on-unmatched-pattern --format stylish {web/modules/custom,web/themes/custom}/**/*.js",
-    "lint:php": "find web/themes/custom -name '*.php' -exec php -l {} \\;",
+    "lint:php": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
     "lint:styles": "stylelint --color {web/modules/custom,web/themes/custom}/**/*.scss",
     "prettier": "prettier '{docs,web/modules/custom,web/themes/custom}/**/*.{json,md,js,html,scss,html}' --ignore-unknown --list-different",
     "local-data-bak": "./scripts/sous/local-data-bak.sh",
