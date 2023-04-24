@@ -166,8 +166,7 @@
     },
     "scripts": {
         "post-create-project-cmd": [
-            "Sous\\Starter::sousPrep",
-            "./scripts/sous/setup.sh"
+            "Sous\\Starter::installTheme"
         ],
         "build-assets": [
             "composer install --optimize-autoloader --no-dev",
@@ -199,8 +198,7 @@
             "cp web/sites/example.settings.local.php web/sites/default/settings.local.php"
         ],
         "prepare-for-pantheon": [
-            "composer install --optimize-autoloader --no-dev",
-            "@build-theme"
+            "DrupalProject\\composer\\ScriptHandler::prepareForPantheon"
         ]
     }
 }
