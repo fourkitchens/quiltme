@@ -199,7 +199,8 @@
             "cp web/sites/example.settings.local.php web/sites/default/settings.local.php"
         ],
         "prepare-for-pantheon": [
-            "@build-assets"
+            "composer install --optimize-autoloader --no-dev",
+            "@build-theme"
         ]
     }
 }
