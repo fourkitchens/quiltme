@@ -836,7 +836,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 /**
  * Set config sync directory.
  */
-$settings['config_sync_directory'] = '../config/default';
+$settings['config_sync_directory'] = 'sites/default/config';
 
 /**
  * Load local development override configuration.
