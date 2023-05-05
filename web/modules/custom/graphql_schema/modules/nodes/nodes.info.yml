@@ -1,0 +1,9 @@
+name: Nodes
+type: module
+description: Provides GraphQL nodes schema.
+package: GraphQL
+core_version_requirement: ^8 || ^9
+dependencies:
+  - graphql:graphql
+  - graphql_schema:graphql_schema
+  - drupal:node

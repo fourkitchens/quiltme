@@ -1,0 +1,25 @@
+interface NodeInterface {
+  id: ID!
+  title: String!
+}
+
+type NodeArticle implements NodeInterface {
+  id: ID!
+  title: String!
+  url: String
+}
+
+type NodeConnection {
+  items: [NodeInterface]
+  total: Int
+}
+
+input ArticleDataInput {
+  title: String!
+}
+
+input ConditionInput {
+  name: String!
+  value: ID!
+  operator: String!
+}

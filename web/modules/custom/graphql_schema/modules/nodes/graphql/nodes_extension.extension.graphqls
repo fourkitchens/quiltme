@@ -1,0 +1,12 @@
+extend type Query {
+  article(id: ID!): NodeArticle
+  articles(
+    conditions: [ConditionInput]
+    offset: Int = 0
+    limit: Int = 10
+  ): NodeConnection
+}
+
+extend type Mutation {
+  createArticle(data: ArticleDataInput): NodeArticle
+}
