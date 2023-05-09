@@ -9,6 +9,7 @@ use Drupal\graphql\Plugin\GraphQL\InputTypes\InputTypePluginBase;
  *   id = "user_submission_input",
  *   name = "UserSubmissionInput",
  *   fields = {
+ *     "title" = "String",
  *     "email" = "String",
  *     "image" = "String",
  *     "backgroundImage" = "String"

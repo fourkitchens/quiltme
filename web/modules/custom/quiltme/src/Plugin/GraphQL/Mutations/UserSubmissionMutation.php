@@ -25,6 +25,7 @@ class UserSubmissionMutation extends CreateEntityBase {
 
   protected function extractEntityInput($value, array $args, ResolveContext $context, ResolveInfo $info) {
     return [
+      'title' => $args['input']['email'],
       'field_user_email' => $args['input']['email'],
       'field_original_image' => $args['input']['image'],
       'field_background_image' => $args['input']['backgroundImage'],
