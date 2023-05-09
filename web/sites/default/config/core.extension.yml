@@ -34,6 +34,7 @@ module:
   focal_point: 0
   gin_toolbar: 0
   graphql: 0
+  graphql_core: 0
   image: 0
   inline_entity_form: 0
   inline_form_errors: 0
