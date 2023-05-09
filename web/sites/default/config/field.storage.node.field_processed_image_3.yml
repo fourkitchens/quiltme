@@ -1,0 +1,21 @@
+uuid: 207d79ab-12b3-40d1-abb7-196ce205f8f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_processed_image_3
+field_name: field_processed_image_3
+entity_type: node
+type: string
+settings:
+  max_length: 1024
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

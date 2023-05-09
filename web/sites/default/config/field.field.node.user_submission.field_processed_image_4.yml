@@ -1,0 +1,19 @@
+uuid: df408274-f835-4dec-8287-6fb32a0d8579
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_processed_image_4
+    - node.type.user_submission
+id: node.user_submission.field_processed_image_4
+field_name: field_processed_image_4
+entity_type: node
+bundle: user_submission
+label: 'Processed Image 4'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
