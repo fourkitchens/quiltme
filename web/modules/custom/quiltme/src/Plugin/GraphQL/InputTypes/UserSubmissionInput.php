@@ -5,6 +5,8 @@ namespace Drupal\quiltme\Plugin\GraphQL\InputTypes;
 use Drupal\graphql\Plugin\GraphQL\InputTypes\InputTypePluginBase;
 
 /**
+ * Custom Input type for User Submission.
+ *
  * @GraphQLInputType(
  *   id = "user_submission_input",
  *   name = "UserSubmissionInput",

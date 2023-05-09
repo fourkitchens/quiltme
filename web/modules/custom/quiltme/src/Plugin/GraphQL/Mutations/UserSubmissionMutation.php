@@ -23,6 +23,9 @@ use GraphQL\Type\Definition\ResolveInfo;
  */
 class UserSubmissionMutation extends CreateEntityBase {
 
+  /**
+   * {@inheritDoc}
+   */
   protected function extractEntityInput($value, array $args, ResolveContext $context, ResolveInfo $info) {
     return [
       'title' => $args['input']['email'],
@@ -31,4 +34,5 @@ class UserSubmissionMutation extends CreateEntityBase {
       'field_background_image' => $args['input']['backgroundImage'],
     ];
   }
+
 }
