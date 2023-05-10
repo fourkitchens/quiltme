@@ -1,6 +1,0 @@
-name: quiltme
-type: module
-description: Initial custom quiltme module.
-package: Custom
-core: 8.x
-core_version_requirement: ^8 || ^9
