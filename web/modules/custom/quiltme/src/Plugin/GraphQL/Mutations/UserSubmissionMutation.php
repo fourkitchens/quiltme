@@ -2,37 +2,85 @@
 
 namespace Drupal\quiltme\Plugin\GraphQL\Mutations;
 
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\graphql\GraphQL\Execution\ResolveContext;
+use Drupal\graphql\Plugin\GraphQL\Mutations\MutationPluginBase;
 use Drupal\graphql_core\Plugin\GraphQL\Mutations\Entity\CreateEntityBase;
 use GraphQL\Type\Definition\ResolveInfo;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Simple mutation for creating a new article node.
  *
  * @GraphQLMutation(
  *   id = "create_user_submission",
- *   entity_type = "node",
- *   entity_bundle = "user_submission",
  *   secure = true,
  *   name = "createUserSubmission",
- *   type = "EntityCrudOutput!",
+ *   type = "NodeUserSubmission!",
  *   arguments = {
  *     "input" = "UserSubmissionInput"
  *   }
  * )
  */
-class UserSubmissionMutation extends CreateEntityBase {
+class UserSubmissionMutation extends MutationPluginBase implements ContainerFactoryPluginInterface {
+
+  use DependencySerializationTrait;
+
+  /**
+   * Entity type manager service.
+   *
+   * @var EntityTypeManagerInterface
+   */
+  protected EntityTypeManagerInterface $entityTypeManager;
 
   /**
    * {@inheritDoc}
    */
-  protected function extractEntityInput($value, array $args, ResolveContext $context, ResolveInfo $info) {
-    return [
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition):UserSubmissionMutation {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('entity_type.manager')
+    );
+  }
+
+  /**
+   * Sets this mutation up with dependency injection.
+   *
+   * @param array $configuration
+   *   Plugin config.
+   * @param $plugin_id
+   *   Plugin id.
+   * @param $plugin_definition
+   *   Plugin definition.
+   * @param EntityTypeManagerInterface $entityTypeManager
+   *   Entity type manager service.
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entityTypeManager){
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->entityTypeManager = $entityTypeManager;
+  }
+
+  public function resolve($value, array $args, ResolveContext $context, ResolveInfo $info) {
+    $node_storage = $this->entityTypeManager->getStorage('node');
+    $node_data = [
       'title' => $args['input']['email'],
       'field_user_email' => $args['input']['email'],
-      'field_original_image' => $args['input']['image'],
-      'field_background_image' => $args['input']['backgroundImage'],
+      'type' => 'user_submission',
+      'status' => TRUE,
+      'author' => 0
     ];
+
+    // Handle file upload here.
+
+    $node = $node_storage->create($node_data);
+    $node?->save();
+
+    return $node;
   }
+
 
 }
