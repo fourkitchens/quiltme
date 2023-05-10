@@ -55,14 +55,17 @@ class UserSubmissionMutation extends MutationPluginBase implements ContainerFact
    *   Plugin id.
    * @param string $plugin_definition
    *   Plugin definition.
-   * @param EntityTypeManagerInterface $entityTypeManager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   Entity type manager service.
    */
-  public function __construct(array $configuration, string $plugin_id, string $plugin_definition, EntityTypeManagerInterface $entityTypeManager){
+  public function __construct(array $configuration, string $plugin_id, string $plugin_definition, EntityTypeManagerInterface $entityTypeManager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entityTypeManager;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   public function resolve($value, array $args, ResolveContext $context, ResolveInfo $info) {
     $node_storage = $this->entityTypeManager->getStorage('node');
     $node_data = [
@@ -74,7 +77,6 @@ class UserSubmissionMutation extends MutationPluginBase implements ContainerFact
     ];
 
     // Handle file upload here.
-
     $node = $node_storage->create($node_data);
     $node?->save();
 
