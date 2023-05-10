@@ -1,0 +1,19 @@
+uuid: e3d519fe-2f16-4ea0-ac4a-6490b9a118bf
+langcode: en
+status: true
+dependencies: {  }
+name: graphql
+label: GraphQL
+endpoint: /graphql
+debug_flag: 0
+schema: graphql_schema
+caching: true
+batching: true
+disable_introspection: false
+query_depth: null
+query_complexity: null
+schema_configuration:
+  graphql_schema:
+    extensions:
+      nodes_extension: nodes_extension
+persisted_queries_settings: {  }
