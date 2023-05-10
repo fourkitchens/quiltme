@@ -1,9 +1,10 @@
-uuid: 7b00a167-14cf-4498-b23b-ad5a18d30ef9
+uuid: 8b46c76c-bf2f-4df2-9187-026fab469b2c
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_background_image
+    - media.type.image
     - node.type.user_submission
 id: node.user_submission.field_background_image
 field_name: field_background_image
@@ -15,5 +16,14 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

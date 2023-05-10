@@ -19,20 +19,22 @@ bundle: user_submission
 mode: default
 content:
   field_background_image:
-    type: string
+    type: entity_reference_entity_view
     label: above
     settings:
-      link_to_entity: false
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 103
+    weight: 108
     region: content
   field_original_image:
-    type: string
+    type: entity_reference_entity_view
     label: above
     settings:
-      link_to_entity: false
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    weight: 102
+    weight: 109
     region: content
   field_processed_image_1:
     type: string

@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.user_submission.field_user_email
     - node.type.user_submission
   module:
+    - media_library
     - path
 id: node.user_submission.default
 targetEntityType: node
@@ -25,20 +26,18 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_background_image:
-    type: string_textfield
-    weight: 123
+    type: media_library_widget
+    weight: 128
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_original_image:
-    type: string_textfield
-    weight: 122
+    type: media_library_widget
+    weight: 129
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_processed_image_1:
     type: string_textfield
