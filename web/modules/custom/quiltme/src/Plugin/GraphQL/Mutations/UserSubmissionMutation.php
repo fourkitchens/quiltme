@@ -7,7 +7,6 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\graphql\GraphQL\Execution\ResolveContext;
 use Drupal\graphql\Plugin\GraphQL\Mutations\MutationPluginBase;
-use Drupal\graphql_core\Plugin\GraphQL\Mutations\Entity\CreateEntityBase;
 use GraphQL\Type\Definition\ResolveInfo;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -31,7 +30,7 @@ class UserSubmissionMutation extends MutationPluginBase implements ContainerFact
   /**
    * Entity type manager service.
    *
-   * @var EntityTypeManagerInterface
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
   protected EntityTypeManagerInterface $entityTypeManager;
 
@@ -52,14 +51,14 @@ class UserSubmissionMutation extends MutationPluginBase implements ContainerFact
    *
    * @param array $configuration
    *   Plugin config.
-   * @param $plugin_id
+   * @param string $plugin_id
    *   Plugin id.
-   * @param $plugin_definition
+   * @param string $plugin_definition
    *   Plugin definition.
    * @param EntityTypeManagerInterface $entityTypeManager
    *   Entity type manager service.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entityTypeManager){
+  public function __construct(array $configuration, string $plugin_id, string $plugin_definition, EntityTypeManagerInterface $entityTypeManager){
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entityTypeManager;
   }
@@ -71,7 +70,7 @@ class UserSubmissionMutation extends MutationPluginBase implements ContainerFact
       'field_user_email' => $args['input']['email'],
       'type' => 'user_submission',
       'status' => TRUE,
-      'author' => 0
+      'author' => 0,
     ];
 
     // Handle file upload here.
@@ -81,6 +80,5 @@ class UserSubmissionMutation extends MutationPluginBase implements ContainerFact
 
     return $node;
   }
-
 
 }
