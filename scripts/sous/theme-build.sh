@@ -1,5 +1,5 @@
 #!/bin/bash
 
 cd web/themes/custom/quiltme
-lando npm ci
-lando npm run storybook:build
+npm ci
+npm run storybook-build
