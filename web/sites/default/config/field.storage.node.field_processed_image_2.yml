@@ -1,17 +1,16 @@
-uuid: bab9582b-16b9-442f-aa78-f3b5c21478f7
+uuid: ff6ac9b1-5496-47f7-8856-e8162710eb6f
 langcode: en
 status: true
 dependencies:
   module:
+    - media
     - node
 id: node.field_processed_image_2
 field_name: field_processed_image_2
 entity_type: node
-type: string
+type: entity_reference
 settings:
-  max_length: 1024
-  case_sensitive: false
-  is_ascii: false
+  target_type: media
 module: core
 locked: false
 cardinality: 1

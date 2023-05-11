@@ -40,36 +40,32 @@ content:
       media_types: {  }
     third_party_settings: {  }
   field_processed_image_1:
-    type: string_textfield
-    weight: 124
+    type: media_library_widget
+    weight: 130
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_processed_image_2:
-    type: string_textfield
-    weight: 125
+    type: media_library_widget
+    weight: 131
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_processed_image_3:
-    type: string_textfield
-    weight: 126
+    type: media_library_widget
+    weight: 132
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_processed_image_4:
-    type: string_textfield
-    weight: 127
+    type: media_library_widget
+    weight: 133
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
   field_user_email:
     type: email_default
