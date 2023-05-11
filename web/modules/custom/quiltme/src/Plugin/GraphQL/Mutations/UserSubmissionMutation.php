@@ -53,12 +53,12 @@ class UserSubmissionMutation extends MutationPluginBase implements ContainerFact
    *   Plugin config.
    * @param string $plugin_id
    *   Plugin id.
-   * @param string $plugin_definition
+   * @param array $plugin_definition
    *   Plugin definition.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   Entity type manager service.
    */
-  public function __construct(array $configuration, string $plugin_id, string $plugin_definition, EntityTypeManagerInterface $entityTypeManager) {
+  public function __construct(array $configuration, string $plugin_id, array $plugin_definition, EntityTypeManagerInterface $entityTypeManager) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entityTypeManager;
   }
