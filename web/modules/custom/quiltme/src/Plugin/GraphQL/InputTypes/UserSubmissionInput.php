@@ -13,8 +13,8 @@ use Drupal\graphql\Plugin\GraphQL\InputTypes\InputTypePluginBase;
  *   fields = {
  *     "title" = "String",
  *     "email" = "String",
- *     "image" = "String",
- *     "backgroundImage" = "String"
+ *     "image" = "Upload",
+ *     "backgroundImage" = "Upload"
  *   }
  * )
  */
