@@ -836,7 +836,9 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 /**
  * Set config sync directory.
  */
-$settings['config_sync_directory'] = 'sites/default/config';
+if (!$is_installer_url) {
+  $settings['config_sync_directory'] = getenv('DOCROOT') ? './config/default' : 'sites/default/config';
+}
 
 /**
  * Load local development override configuration.
@@ -844,14 +846,3 @@ $settings['config_sync_directory'] = 'sites/default/config';
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
-
-/**
- * Include the Pantheon-specific settings file.
- *
- * n.b. The settings.pantheon.php file makes some changes
- *      that affect all environments that this site
- *      exists in.  Always include this file, even in
- *      a local development environment, to ensure that
- *      the site settings remain consistent.
- */
-include __DIR__ . "/settings.pantheon.php";
