@@ -836,9 +836,8 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 /**
  * Set config sync directory.
  */
-if (!$is_installer_url) {
-  $settings['config_sync_directory'] = getenv('DOCROOT') ? './config/default' : 'sites/default/config';
-}
+
+$settings['config_sync_directory'] = '../config/default';
 
 /**
  * Load local development override configuration.
