@@ -834,11 +834,6 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # }
 
 /**
- * Set config sync directory.
- */
-$settings['config_sync_directory'] = 'sites/default/config';
-
-/**
  * Load local development override configuration.
  */
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
@@ -855,3 +850,10 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
  *      the site settings remain consistent.
  */
 include __DIR__ . "/settings.pantheon.php";
+
+/**
+ * Set config sync directory.
+ */
+$settings['config_sync_directory'] = '../config/default';
+
+$config['quiltme_picsart.api_settings']['api_key'] = 'DdN5jspTz9ycUTv9mlgZxDtc4M0z1as9';
