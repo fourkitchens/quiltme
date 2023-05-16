@@ -3,9 +3,6 @@ web/sites/*/files
 web/sites/*/private
 files/*
 
-# Avoid accidental modification of pantheon.upstream.yml in sites
-# created from this upstream
-pantheon.upstream.yml
 
 # Pantheon commits a settings.php for environment-specific settings.
 # Place local settings in settings.local.php
@@ -111,7 +108,7 @@ web.config
 
 # Remove me after sous install
 README.txt
-development.services.yml
+web/sites/development.services.yml
 example.settings.local.php
 example.sites.php
 default.services.yml
