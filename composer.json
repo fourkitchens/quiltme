@@ -145,7 +145,8 @@
             },
             "source": "https://git.drupalcode.org/project/drupal/raw/{version}/{path}",
             "allowed-packages": [
-                "fourkitchens/sous-drupal-distro"
+                "fourkitchens/sous-drupal-distro",
+                "pantheon-systems/drupal-integrations"
             ],
             "excludes": [
                 ".eslintrc"
@@ -198,8 +199,6 @@
             "cp web/sites/example.settings.local.php web/sites/default/settings.local.php"
         ],
         "prepare-for-pantheon": [
-            "composer install --optimize-autoloader --no-dev",
-            "@build-theme",
             "DrupalProject\\composer\\ScriptHandler::prepareForPantheon"
         ]
     }
