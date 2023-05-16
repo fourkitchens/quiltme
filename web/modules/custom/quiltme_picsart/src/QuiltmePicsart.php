@@ -12,32 +12,37 @@ use Drupal\file\FileRepositoryInterface;
 /**
  * Defines the QuiltmePicsart service class.
  */
-  class QuiltmePicsart {
+class QuiltmePicsart {
 
   /**
    * The HTTP client to fetch the feed data with.
    *
    * @var \GuzzleHttp\ClientInterface
    */
-  protected $client;
+  protected GuzzleClient $client;
 
   /**
    * API options.
+   *
+   * @var array
    */
-  protected $apiOptions;
+  protected array $apiOptions;
 
   /**
-   * File system
+   * File system.
+   *
+   * @var \Drupal\Core\File\FileSystemInterface
    */
-  protected $fileSystem;
+  protected FileSystemInterface $fileSystem;
 
   /**
-   * File repository
+   * File repository.
+   *
+   * @var \Drupal\file\FileRepositoryInterface
    */
-  protected $fileRepository;
+  protected FileRepositoryInterface $fileRepository;
 
-
-    /**
+  /**
    * AFT settings configuration.
    *
    * @var \Drupal\Core\Config\ImmutableConfig
@@ -50,9 +55,9 @@ use Drupal\file\FileRepositoryInterface;
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory interface.
    * @param \Drupal\Core\File\FileSystemInterface $file_system
-   *   The file system
+   *   The file system.
    * @param \Drupal\file\FileRepositoryInterface $file_repository
-   *   The file system
+   *   The file system.
    */
   public function __construct(ConfigFactoryInterface $config_factory, FileSystemInterface $file_system, FileRepositoryInterface $file_repository) {
     $this->config = $config_factory->get('quiltme_picsart.api_settings');
@@ -63,21 +68,21 @@ use Drupal\file\FileRepositoryInterface;
     $this->fileRepository = $file_repository;
   }
 
-    /**
-     * Takes an array of options and returns a media id.
-     *
-     * @param array $options
-     *   eg.
-     *     $options = [
-     *       'image_url' => 'https://pyxis.nymag.com/v1/imgs/c49/fa5/d43db44d60dee75b3ed58a3e57ef29d527-Vulturefest5333-1-copy.rvertical.w570.jpg',
-     *       'reference_image_url' => 'https://i.etsystatic.com/16016281/r/il/f57f99/3099413915/il_1588xN.3099413915_qf9h.jpg',
-     *       'level' => 'l5',
-     *       'email' => 'laura@fourkitchens.com',
-     *     ];
-     *
-     * @return int
-     *   The media id.
-     */
+  /**
+   * Takes an array of options and returns a media id.
+   *
+   * @param array $options
+   *   Eg.
+   *     $options = [
+   *       'image_url' => 'https://pyxis.nymag.com/v1/imgs/c49/fa5/d43db44d60dee75b3ed58a3e57ef29d527-Vulturefest5333-1-copy.rvertical.w570.jpg',
+   *       'reference_image_url' => 'https://i.etsystatic.com/16016281/r/il/f57f99/3099413915/il_1588xN.3099413915_qf9h.jpg',
+   *       'level' => 'l5',
+   *       'email' => 'laura@fourkitchens.com',
+   *     ];.
+   *
+   * @return int
+   *   The media id.
+   */
   public function getStyleTransferMediaId(array $options) : int {
 
     // Save the options for use in the API call.
@@ -97,15 +102,15 @@ use Drupal\file\FileRepositoryInterface;
 
     // Create image media.
     $image_media = Media::create([
-      'name' => $options['email'] . '--style-transfer',
+      'name' => t('@email--style-transfer', ['@email' => $options['email']]),
       'bundle' => 'image',
       'uid' => 1,
       'langcode' => 'en',
       'status' => 0,
       'field_media_image' => [
         'target_id' => $image->id(),
-        'alt' => t($options['email'] . '--style-transfer'),
-        'title' => t($options['email'] . '--style-transfer'),
+        'alt' => t('@email--style-transfer', ['@email' => $options['email']]),
+        'title' => t('@email--style-transfer', ['@email' => $options['email']]),
       ],
     ]);
     $image_media->save();
@@ -113,12 +118,12 @@ use Drupal\file\FileRepositoryInterface;
     return $image_media->id();
   }
 
-    /**
-     * Make a http post to the PicsArt API and return the uri of the created file.
-     *
-     * @return string
-     *   The file url returned by PicsArt.
-     */
+  /**
+   * Make a http post to the PicsArt API and return the file URI.
+   *
+   * @return string
+   *   The file url returned by PicsArt.
+   */
   private function getStyleTransferImageUrl() : string {
     try {
       $result = $this->client->post('https://api.picsart.io/tools/1.0/styletransfer', [
@@ -132,7 +137,8 @@ use Drupal\file\FileRepositoryInterface;
       $result = json_decode($result->getBody()->getContents(), TRUE);
       // Return the URL.
       return $result['data']['url'];
-    } catch (\Exception $e) {
+    }
+    catch (\Exception $e) {
       echo 'Exception when calling StyleTransferApi: ', $e->getMessage(), PHP_EOL;
     }
   }
