@@ -98,7 +98,7 @@ class QuiltmePicsart {
     $file_system = \Drupal::service('file_system');
     $file_system->prepareDirectory($directory, FileSystemInterface:: CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
     $file_repository = \Drupal::service('file.repository');
-    $image = $file_repository->writeData($image_data, "public://quiltme-api/{$options['email']} . '--style-transfer.jpg", FileSystemInterface::EXISTS_REPLACE);
+    $image = $file_repository->writeData($image_data, "public://quiltme-api/{$options['email']}--style-transfer.jpg", FileSystemInterface::EXISTS_REPLACE);
 
     // Create image media.
     $image_media = Media::create([
