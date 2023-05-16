@@ -198,7 +198,6 @@
             "cp web/sites/example.settings.local.php web/sites/default/settings.local.php"
         ],
         "prepare-for-pantheon": [
-            "composer install --optimize-autoloader --no-dev",
             "DrupalProject\\composer\\ScriptHandler::prepareForPantheon"
         ]
     }
