@@ -199,7 +199,6 @@
         ],
         "prepare-for-pantheon": [
             "composer install --optimize-autoloader --no-dev",
-            "@build-theme",
             "DrupalProject\\composer\\ScriptHandler::prepareForPantheon"
         ]
     }
