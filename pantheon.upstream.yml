@@ -7,4 +7,3 @@ database:
   version: 10.4
 drush_version: 10
 build_step: false
-protected_web_paths:
