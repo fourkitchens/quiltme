@@ -1,0 +1,29 @@
+uuid: 2ca7467c-c854-428a-8d09-c57e508f9269
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_processed_image_4
+    - media.type.image
+    - node.type.user_submission
+id: node.user_submission.field_processed_image_4
+field_name: field_processed_image_4
+entity_type: node
+bundle: user_submission
+label: 'Processed Image 4'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
