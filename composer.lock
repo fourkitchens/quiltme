@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b3b571efc1124c0950146e515d299b8",
+    "content-hash": "b486239bb68ef105ccd94b04d1972861",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2217,17 +2217,17 @@
         },
         {
             "name": "drupal/ctools",
-            "version": "4.0.3",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ctools.git",
-                "reference": "4.0.3"
+                "reference": "4.0.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ctools-4.0.3.zip",
-                "reference": "4.0.3",
-                "shasum": "4f389b14bd2120069386c2f28f8c4cd49bd2ebfc"
+                "url": "https://ftp.drupal.org/files/projects/ctools-4.0.4.zip",
+                "reference": "4.0.4",
+                "shasum": "4a2474eb2fd525b2add2db0e855c135ba7f0fb70"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10"
@@ -2235,8 +2235,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.0.3",
-                    "datestamp": "1668631947",
+                    "version": "4.0.4",
+                    "datestamp": "1684299878",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2803,17 +2803,17 @@
         },
         {
             "name": "drupal/entity_browser_enhanced",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_browser_enhanced.git",
-                "reference": "8.x-1.1"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_browser_enhanced-8.x-1.1.zip",
-                "reference": "8.x-1.1",
-                "shasum": "3f76142651b6eb2085218ad3e4ee96b3a69e463a"
+                "url": "https://ftp.drupal.org/files/projects/entity_browser_enhanced-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "02ea0bddd430c058bfaf21310747ce3dff53735a"
             },
             "require": {
                 "drupal/core": "~8.0 || ~9.0 || ~10.0",
@@ -2822,8 +2822,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.1",
-                    "datestamp": "1673189790",
+                    "version": "8.x-1.2",
+                    "datestamp": "1684398445",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2997,17 +2997,17 @@
         },
         {
             "name": "drupal/entity_usage",
-            "version": "2.0.0-beta11",
+            "version": "2.0.0-beta12",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_usage.git",
-                "reference": "8.x-2.0-beta11"
+                "reference": "8.x-2.0-beta12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_usage-8.x-2.0-beta11.zip",
-                "reference": "8.x-2.0-beta11",
-                "shasum": "31b7248887c917a5aa85bb0c8251467b96d53110"
+                "url": "https://ftp.drupal.org/files/projects/entity_usage-8.x-2.0-beta12.zip",
+                "reference": "8.x-2.0-beta12",
+                "shasum": "cdd31e6c413cad6fbdb1bd0aac9ad8a0331eb429"
             },
             "require": {
                 "drupal/core": "^9.1 || ^10"
@@ -3027,8 +3027,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.0-beta11",
-                    "datestamp": "1676966168",
+                    "version": "8.x-2.0-beta12",
+                    "datestamp": "1684309054",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -3300,6 +3300,71 @@
                     "url": "https://paypal.me/saschaeggi"
                 }
             ]
+        },
+        {
+            "name": "drupal/graphql",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/graphql.git",
+                "reference": "8.x-3.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/graphql-8.x-3.1.zip",
+                "reference": "8.x-3.1",
+                "shasum": "088430befbf13f2c8dadf1d9d14d01487e6f52bc"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9",
+                "webonyx/graphql-php": "^0.12.5"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-3.1",
+                    "datestamp": "1603962169",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "fubhy",
+                    "homepage": "https://www.drupal.org/user/761344"
+                },
+                {
+                    "name": "hideaway",
+                    "homepage": "https://www.drupal.org/user/741876"
+                },
+                {
+                    "name": "joaogarin",
+                    "homepage": "https://www.drupal.org/user/612814"
+                },
+                {
+                    "name": "Kingdutch",
+                    "homepage": "https://www.drupal.org/user/1868952"
+                },
+                {
+                    "name": "klausi",
+                    "homepage": "https://www.drupal.org/user/262198"
+                },
+                {
+                    "name": "pmelab",
+                    "homepage": "https://www.drupal.org/user/555322"
+                }
+            ],
+            "description": "Exposes your Drupal data model through a GraphQL schema.",
+            "homepage": "http://drupal.org/project/graphql",
+            "support": {
+                "source": "https://git.drupalcode.org/project/graphql"
+            }
         },
         {
             "name": "drupal/improve_line_breaks_filter",
@@ -3787,7 +3852,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "7ed42d2d51aae7a0bf9c9854762797a8786c0ee9"
+                "reference": "c9fbbf1890b356d70a937a9fd24dab63c614409f"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10",
@@ -3810,8 +3875,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.23+2-dev",
-                    "datestamp": "1684250298",
+                    "version": "8.x-1.23+5-dev",
+                    "datestamp": "1684283786",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -5107,16 +5172,16 @@
         },
         {
             "name": "fourkitchens/project_ci",
-            "version": "0.4.3",
+            "version": "0.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fourkitchens/project_ci.git",
-                "reference": "6ffada8037ec0e6e9fb25926e70a01af7017d816"
+                "reference": "69e81206b8360caf63b5afdf7a47c026738e561d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fourkitchens/project_ci/zipball/6ffada8037ec0e6e9fb25926e70a01af7017d816",
-                "reference": "6ffada8037ec0e6e9fb25926e70a01af7017d816",
+                "url": "https://api.github.com/repos/fourkitchens/project_ci/zipball/69e81206b8360caf63b5afdf7a47c026738e561d",
+                "reference": "69e81206b8360caf63b5afdf7a47c026738e561d",
                 "shasum": ""
             },
             "type": "library",
@@ -5130,9 +5195,9 @@
             "description": "Scripts to help aid in deployment for sites.",
             "support": {
                 "issues": "https://github.com/fourkitchens/project_ci/issues",
-                "source": "https://github.com/fourkitchens/project_ci/tree/0.4.3"
+                "source": "https://github.com/fourkitchens/project_ci/tree/0.4.4"
             },
-            "time": "2023-05-02T18:49:02+00:00"
+            "time": "2023-05-17T21:47:05+00:00"
         },
         {
             "name": "grasmash/expander",
@@ -6215,16 +6280,16 @@
         },
         {
             "name": "pantheon-systems/drupal-integrations",
-            "version": "9.0.4",
+            "version": "9.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/drupal-integrations.git",
-                "reference": "7e04867c1d9c9153fc077194f7fd53eb26a9cd1d"
+                "reference": "f0bd10f93b326d759dd3bbdcbff13f6cd13c0c8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/drupal-integrations/zipball/7e04867c1d9c9153fc077194f7fd53eb26a9cd1d",
-                "reference": "7e04867c1d9c9153fc077194f7fd53eb26a9cd1d",
+                "url": "https://api.github.com/repos/pantheon-systems/drupal-integrations/zipball/f0bd10f93b326d759dd3bbdcbff13f6cd13c0c8f",
+                "reference": "f0bd10f93b326d759dd3bbdcbff13f6cd13c0c8f",
                 "shasum": ""
             },
             "conflict": {
@@ -6252,9 +6317,9 @@
             "description": "Add this project to any Drupal distribution based on drupal/core-composer-scaffold to enable it for use on Pantheon.",
             "support": {
                 "issues": "https://github.com/pantheon-systems/drupal-integrations/issues",
-                "source": "https://github.com/pantheon-systems/drupal-integrations/tree/9.0.4"
+                "source": "https://github.com/pantheon-systems/drupal-integrations/tree/9.0.5"
             },
-            "time": "2022-11-30T23:22:43+00:00"
+            "time": "2023-05-17T17:44:50+00:00"
         },
         {
             "name": "pear/archive_tar",
@@ -10083,6 +10148,55 @@
             "time": "2015-12-17T08:42:14+00:00"
         },
         {
+            "name": "webonyx/graphql-php",
+            "version": "v0.12.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webonyx/graphql-php.git",
+                "reference": "4c545e5ec4fc37f6eb36c19f5a0e7feaf5979c95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/4c545e5ec4fc37f6eb36c19f5a0e7feaf5979c95",
+                "reference": "4c545e5ec4fc37f6eb36c19f5a0e7feaf5979c95",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "psr/http-message": "^1.0",
+                "react/promise": "2.*"
+            },
+            "suggest": {
+                "psr/http-message": "To use standard GraphQL server",
+                "react/promise": "To leverage async resolving on React PHP platform"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GraphQL\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A PHP port of GraphQL reference implementation",
+            "homepage": "https://github.com/webonyx/graphql-php",
+            "keywords": [
+                "api",
+                "graphql"
+            ],
+            "support": {
+                "issues": "https://github.com/webonyx/graphql-php/issues",
+                "source": "https://github.com/webonyx/graphql-php/tree/0.12.x"
+            },
+            "time": "2018-09-02T14:59:54+00:00"
+        },
+        {
             "name": "zaporylie/composer-drupal-optimizations",
             "version": "1.2.0",
             "source": {
@@ -11204,16 +11318,16 @@
         },
         {
             "name": "mglaman/phpstan-drupal",
-            "version": "1.1.32",
+            "version": "1.1.33",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mglaman/phpstan-drupal.git",
-                "reference": "d8a70aca702df6fcb95a50afffbe3c0ea407ad93"
+                "reference": "42d594e70ea0e6b75662d35f302814558e05ac2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mglaman/phpstan-drupal/zipball/d8a70aca702df6fcb95a50afffbe3c0ea407ad93",
-                "reference": "d8a70aca702df6fcb95a50afffbe3c0ea407ad93",
+                "url": "https://api.github.com/repos/mglaman/phpstan-drupal/zipball/42d594e70ea0e6b75662d35f302814558e05ac2e",
+                "reference": "42d594e70ea0e6b75662d35f302814558e05ac2e",
                 "shasum": ""
             },
             "require": {
@@ -11288,7 +11402,7 @@
             "description": "Drupal extension and rules for PHPStan",
             "support": {
                 "issues": "https://github.com/mglaman/phpstan-drupal/issues",
-                "source": "https://github.com/mglaman/phpstan-drupal/tree/1.1.32"
+                "source": "https://github.com/mglaman/phpstan-drupal/tree/1.1.33"
             },
             "funding": [
                 {
@@ -11304,7 +11418,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-10T20:44:42+00:00"
+            "time": "2023-05-17T21:43:58+00:00"
         },
         {
             "name": "palantirnet/drupal-rector",
@@ -11574,5 +11688,5 @@
         "php": ">=8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.0.0"
 }
