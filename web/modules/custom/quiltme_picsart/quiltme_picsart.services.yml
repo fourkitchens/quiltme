@@ -1,0 +1,4 @@
+services:
+  quiltme_picsart.connector:
+    class: Drupal\quiltme_picsart\QuiltmePicsart
+    arguments: ['@config.factory', '@file_system', '@file.repository']

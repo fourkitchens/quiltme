@@ -1,0 +1,7 @@
+quiltme_picsart.content:
+  path: '/quiltme'
+  defaults:
+    _controller: '\Drupal\quiltme_picsart\Controller\QuiltmeController::content'
+    _title: 'Hello World'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,6 @@
+name: Quiltme PicsArt
+type: module
+description: Provides a service to connect to the PicsArt API.
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
