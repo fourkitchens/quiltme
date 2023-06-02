@@ -1,6 +1,18 @@
 <?php
 
+use Drupal\Core\Entity\EntityInterface;
+
 /**
  * @file
  * Primary module hooks for quiltme_picsart module.
  */
+
+/**
+ * Implements hook_ENTITY_TYPE_presave().
+ */
+function quiltme_picsart_node_presave(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == "user_submission") {
+    $picsart = \Drupal::service('quiltme_picsart.connector');
+
+  }
+}
