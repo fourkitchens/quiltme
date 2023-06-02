@@ -1,6 +1,8 @@
 <?php
 
-use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+use Drupal\media\Entity\Media;
+use Drupal\file\Entity\File;
 
 /**
  * @file
@@ -10,9 +12,28 @@ use Drupal\Core\Entity\EntityInterface;
 /**
  * Implements hook_ENTITY_TYPE_presave().
  */
-function quiltme_picsart_node_presave(EntityInterface $entity) {
-  if ($entity->getEntityTypeId() == "user_submission") {
+function quiltme_picsart_node_presave(NodeInterface $node) {
+  if ($node->getEntityTypeId() == "user_submission") {
     $picsart = \Drupal::service('quiltme_picsart.connector');
+
+    $image_media = Media::load($node->field_original_image->target_id);
+    $image_file = File::load($image_media->field_media_image->target_id);
+    $image_file_url = $image_file->url();
+
+    $options = [
+      'image_url' => $image_file_url,
+      'reference_image_url' => 'https://i.etsystatic.com/16016281/r/il/f57f99/3099413915/il_1588xN.3099413915_qf9h.jpg',
+      'level' => 'l5',
+      'email' => 'laura@fourkitchens.com',
+    ];
+
+    $random_pattern_numbers = array_rand(range(01, 28), 4);
+
+    foreach($random_pattern_numbers as $pattern_number) {
+
+      $media_id = $picsart->getStyleTransferMediaId($options);
+      $node->field_processed_images[] = ['target_id' => $media_id];
+    }
 
   }
 }
