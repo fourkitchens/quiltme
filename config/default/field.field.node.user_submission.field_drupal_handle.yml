@@ -1,0 +1,19 @@
+uuid: bdf8b45d-7a3b-42a4-a64d-faa91d0c58a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_drupal_handle
+    - node.type.user_submission
+id: node.user_submission.field_drupal_handle
+field_name: field_drupal_handle
+entity_type: node
+bundle: user_submission
+label: 'Drupal handle'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

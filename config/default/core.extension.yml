@@ -33,6 +33,8 @@ module:
   filter: 0
   focal_point: 0
   gin_toolbar: 0
+  graphql: 0
+  graphql_core: 0
   image: 0
   inline_entity_form: 0
   inline_form_errors: 0
@@ -57,6 +59,7 @@ module:
   paragraphs_features: 0
   path: 0
   path_alias: 0
+  quiltme: 0
   quiltme_picsart: 0
   redirect: 0
   responsive_image: 0
