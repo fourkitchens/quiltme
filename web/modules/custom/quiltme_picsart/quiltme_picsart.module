@@ -26,7 +26,7 @@ function quiltme_picsart_node_update(NodeInterface $node) {
       'email' => $node->field_user_email->value,
     ];
 
-    $random_pattern_numbers = array_rand(range(0, 28), 4);
+    $random_pattern_numbers = array_rand(range(0, 28), 1);
 
     foreach ($random_pattern_numbers as $pattern_number) {
       // Add 0 in front of any single digit number.
