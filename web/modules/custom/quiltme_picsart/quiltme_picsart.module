@@ -12,7 +12,7 @@ use Drupal\file\Entity\File;
 /**
  * Implements hook_ENTITY_TYPE_presave().
  */
-function quiltme_picsart_node_postsave(NodeInterface $node) {
+function quiltme_picsart_node_update(NodeInterface $node) {
   if ($node->bundle() == "user_submission") {
     $picsart = \Drupal::service('quiltme_picsart.connector');
 
