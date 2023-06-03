@@ -12,7 +12,7 @@ use Drupal\file\Entity\File;
 /**
  * Implements hook_ENTITY_TYPE_presave().
  */
-function quiltme_picsart_node_presave(NodeInterface $node) {
+function quiltme_picsart_node_postsave(NodeInterface $node) {
   if ($node->bundle() == "user_submission") {
     $picsart = \Drupal::service('quiltme_picsart.connector');
 
@@ -38,6 +38,6 @@ function quiltme_picsart_node_presave(NodeInterface $node) {
       $media_id = $picsart->getStyleTransferMediaId($options);
       $node->field_processed_images[] = ['target_id' => $media_id];
     }
-
+    $node->save();
   }
 }
