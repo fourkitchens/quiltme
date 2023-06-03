@@ -92,8 +92,9 @@ class QuiltmePicsart {
     $directory = 'public://quiltme-api';
     /** @var \Drupal\Core\File\FileSystemInterface $file_system */
     // Prepare the directory.
+    $random_number = rand(100000, 999999);
     $this->fileSystem->prepareDirectory($directory, FileSystemInterface:: CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
-    $image = $this->fileRepository->writeData($image_data, "public://quiltme-api/{$options['email']}--{$options['pattern_number']}--style-transfer.jpg", FileSystemInterface::EXISTS_REPLACE);
+    $image = $this->fileRepository->writeData($image_data, "public://quiltme-api/{$options['email']}-{$options['pattern_number']}-{$random_number}--style-transfer.jpg", FileSystemInterface::EXISTS_REPLACE);
 
     // Create image media.
     $image_media = Media::create([

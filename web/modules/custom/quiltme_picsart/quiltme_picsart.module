@@ -34,10 +34,10 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
   $node = $form_state->getFormObject()->getEntity();
 
   $options = [
-      'image_url' => $image_file_url,
-      'level' => 'l3',
-      'email' => $form_state->getValue('field_user_email')[0]['value'],
-      'node' => $node,
+    'image_url' => $image_file_url,
+    'level' => 'l3',
+    'email' => $form_state->getValue('field_user_email')[0]['value'],
+    'node' => $node,
   ];
 
   $random_pattern_numbers = array_rand(range(0, 28), 4);
