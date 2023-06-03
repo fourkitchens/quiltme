@@ -18,7 +18,7 @@ function quiltme_picsart_node_update(NodeInterface $node) {
 
     $image_media = Media::load($node->field_original_image->target_id);
     $image_file = File::load($image_media->field_media_image->target_id);
-    $image_file_url = $image_file->createFileUrl();
+    $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $image_file->createFileUrl();
 
     $options = [
       'image_url' => $image_file_url,
