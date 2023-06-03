@@ -1,13 +1,13 @@
 <?php
 
-use Drupal\node\NodeInterface;
-use Drupal\media\Entity\Media;
-use Drupal\file\Entity\File;
-
 /**
  * @file
  * Primary module hooks for quiltme_picsart module.
  */
+
+use Drupal\node\NodeInterface;
+use Drupal\media\Entity\Media;
+use Drupal\file\Entity\File;
 
 /**
  * Implements hook_ENTITY_TYPE_presave().
@@ -28,8 +28,8 @@ function quiltme_picsart_node_presave(NodeInterface $node) {
 
     $random_pattern_numbers = array_rand(range(0, 28), 4);
 
-    foreach($random_pattern_numbers as $pattern_number) {
-      //Add 0 in front of any single digit number
+    foreach ($random_pattern_numbers as $pattern_number) {
+      // Add 0 in front of any single digit number.
       $pattern_number = sprintf("%02d", $pattern_number);
 
       $pattern_url = "http://dev-4k-quiltme.pantheonsite.io/themes/custom/quiltme/images/patterns/pattern-{$pattern_number}.png";
