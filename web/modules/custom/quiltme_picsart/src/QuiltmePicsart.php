@@ -104,7 +104,7 @@ class QuiltmePicsart {
       'bundle' => 'image',
       'uid' => 1,
       'langcode' => 'en',
-      'status' => 0,
+      'status' => 1,
       'field_media_image' => [
         'target_id' => $image->id(),
         'alt' => t('@email--style-transfer', ['@email' => $options['email']]),
