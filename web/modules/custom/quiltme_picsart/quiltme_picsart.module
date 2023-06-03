@@ -31,12 +31,13 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
   $image_media = Media::load($form_state->getValue('field_original_image')['selection'][0]['target_id']);
   $image_file = File::load($image_media->field_media_image->target_id);
   $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $image_file->createFileUrl();
+  $node = $form_state->getFormObject()->getEntity();
 
   $options = [
-    'image_url' => $image_file_url,
-    'level' => 'l5',
-    'email' => $form_state->getValue('field_user_email')[0]['value'],
-    'node' => $form_state->getFormObject()->getEntity(),
+      'image_url' => $image_file_url,
+      'level' => 'l3',
+      'email' => $form_state->getValue('field_user_email')[0]['value'],
+      'node' => $node,
   ];
 
   $random_pattern_numbers = array_rand(range(0, 28), 4);
@@ -77,16 +78,15 @@ function quiltme_picsart_get_style_transfer_images_callback($options, &$context)
 
   $media_id = $picsart->getStyleTransferMediaId($options);
 
-  $node->field_processed_images[] = ['target_id' => $media_id];
-  $results[] = $media_id;
-
+  $node->field_processed_images->appendItem(['target_id' => $media_id]);
   $node->save();
+
+  $results[] = $media_id;
 
   $context['results'][] = $media_id;
   $context['message'] = t('Created @title', ['@title' => $pattern_url]);
 
   sleep(10);
-
 }
 
 /**

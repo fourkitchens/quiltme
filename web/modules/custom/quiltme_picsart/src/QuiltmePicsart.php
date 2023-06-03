@@ -61,9 +61,8 @@ class QuiltmePicsart {
    */
   public function __construct(ConfigFactoryInterface $config_factory, FileSystemInterface $file_system, FileRepositoryInterface $file_repository) {
     $this->config = $config_factory->get('quiltme_picsart.api_settings');
-    $this->apiKey = $this->config->get('api_key') ?? 'DdN5jspTz9ycUTv9mlgZxDtc4M0z1as9';
+    $this->apiKey = $this->config->get('api_key') ?? 'CFrayF4ePDAui3Uf012F51kAabYRkRLY';
     $this->client = new GuzzleClient();
-    $this->apiOptions = [];
     $this->fileSystem = $file_system;
     $this->fileRepository = $file_repository;
   }
@@ -85,10 +84,8 @@ class QuiltmePicsart {
    */
   public function getStyleTransferMediaId(array $options) : int {
 
-    // Save the options for use in the API call.
-    $this->apiOptions = $options;
     // Make the API call and get the returned image URL.
-    $styleTransferImageUrl = $this->getStyleTransferImageUrl();
+    $styleTransferImageUrl = $this->getStyleTransferImageUrl($options);
 
     // Get the contents of the image URL returned from PicsArt.
     $image_data = file_get_contents($styleTransferImageUrl);
@@ -96,7 +93,7 @@ class QuiltmePicsart {
     /** @var \Drupal\Core\File\FileSystemInterface $file_system */
     // Prepare the directory.
     $this->fileSystem->prepareDirectory($directory, FileSystemInterface:: CREATE_DIRECTORY | FileSystemInterface::MODIFY_PERMISSIONS);
-    $image = $this->fileRepository->writeData($image_data, "public://quiltme-api/{$options['email']}--style-transfer.jpg", FileSystemInterface::EXISTS_REPLACE);
+    $image = $this->fileRepository->writeData($image_data, "public://quiltme-api/{$options['email']}--{$options['pattern_number']}--style-transfer.jpg", FileSystemInterface::EXISTS_REPLACE);
 
     // Create image media.
     $image_media = Media::create([
@@ -122,7 +119,7 @@ class QuiltmePicsart {
    * @return string
    *   The file url returned by PicsArt.
    */
-  private function getStyleTransferImageUrl() : string {
+  private function getStyleTransferImageUrl(array $options) : string {
     try {
       $result = $this->client->post('https://api.picsart.io/tools/1.0/styletransfer', [
         'headers' => [
@@ -130,7 +127,7 @@ class QuiltmePicsart {
           'Content-Type' => 'application/x-www-form-urlencoded',
           'X-Picsart-API-Key' => $this->apiKey,
         ],
-        'form_params' => $this->apiOptions,
+        'form_params' => $options,
       ]);
       $result = json_decode($result->getBody()->getContents(), TRUE);
       // Return the URL.
