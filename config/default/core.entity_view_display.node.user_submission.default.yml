@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.user_submission.field_background_image
+    - field.field.node.user_submission.field_drupal_handle
     - field.field.node.user_submission.field_original_image
     - field.field.node.user_submission.field_processed_image_1
     - field.field.node.user_submission.field_processed_image_2
@@ -26,6 +27,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 108
+    region: content
+  field_drupal_handle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
     region: content
   field_original_image:
     type: entity_reference_entity_view

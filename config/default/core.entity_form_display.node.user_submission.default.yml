@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.user_submission.field_background_image
+    - field.field.node.user_submission.field_drupal_handle
     - field.field.node.user_submission.field_original_image
     - field.field.node.user_submission.field_processed_image_1
     - field.field.node.user_submission.field_processed_image_2
@@ -31,6 +32,14 @@ content:
     region: content
     settings:
       media_types: {  }
+    third_party_settings: {  }
+  field_drupal_handle:
+    type: string_textfield
+    weight: 134
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_original_image:
     type: media_library_widget

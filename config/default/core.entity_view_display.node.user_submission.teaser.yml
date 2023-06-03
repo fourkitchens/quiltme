@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.user_submission.field_background_image
+    - field.field.node.user_submission.field_drupal_handle
     - field.field.node.user_submission.field_original_image
     - field.field.node.user_submission.field_processed_image_1
     - field.field.node.user_submission.field_processed_image_2
@@ -26,6 +27,7 @@ content:
     region: content
 hidden:
   field_background_image: true
+  field_drupal_handle: true
   field_original_image: true
   field_processed_image_1: true
   field_processed_image_2: true
