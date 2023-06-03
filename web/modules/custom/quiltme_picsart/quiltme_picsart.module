@@ -85,6 +85,8 @@ function quiltme_picsart_get_style_transfer_images_callback($options, &$context)
   $context['results'][] = $media_id;
   $context['message'] = t('Created @title', ['@title' => $pattern_url]);
 
+  sleep(10);
+
 }
 
 /**
