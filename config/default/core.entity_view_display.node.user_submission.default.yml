@@ -1,0 +1,47 @@
+uuid: f3636ba4-483e-43cb-b6cb-57afdd9dd625
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.user_submission.field_original_image
+    - field.field.node.user_submission.field_processed_images
+    - field.field.node.user_submission.field_user_email
+    - node.type.user_submission
+  module:
+    - user
+id: node.user_submission.default
+targetEntityType: node
+bundle: user_submission
+mode: default
+content:
+  field_original_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_processed_images:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_user_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,7 @@
+uuid: aca85765-7234-4043-b792-69355aabb22a
+langcode: en
+status: true
+dependencies: {  }
+name: media_library
+label: 'Media Library'
+effects: {  }

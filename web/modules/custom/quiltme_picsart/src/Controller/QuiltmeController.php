@@ -3,8 +3,6 @@
 namespace Drupal\quiltme_picsart\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\media\Entity\Media;
-use \Drupal\node\Entity\Node;
 
 /**
  * An example controller.
