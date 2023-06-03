@@ -1,11 +1,16 @@
-uuid: c54fc748-e554-4a49-ba0c-407bbfee7d28
+uuid: 53937188-251b-4b87-8aea-36cb611c92cd
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.user_submission.field_background_image
+    - field.field.node.user_submission.field_drupal_handle
     - field.field.node.user_submission.field_original_image
-    - field.field.node.user_submission.field_processed_images
+    - field.field.node.user_submission.field_processed_image_1
+    - field.field.node.user_submission.field_processed_image_2
+    - field.field.node.user_submission.field_processed_image_3
+    - field.field.node.user_submission.field_processed_image_4
     - field.field.node.user_submission.field_user_email
     - node.type.user_submission
   module:
@@ -21,6 +26,11 @@ content:
     weight: 100
     region: content
 hidden:
+  field_background_image: true
+  field_drupal_handle: true
   field_original_image: true
-  field_processed_images: true
+  field_processed_image_1: true
+  field_processed_image_2: true
+  field_processed_image_3: true
+  field_processed_image_4: true
   field_user_email: true

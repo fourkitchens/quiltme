@@ -1,10 +1,24 @@
+<<<<<<< HEAD
 uuid: f3636ba4-483e-43cb-b6cb-57afdd9dd625
+=======
+uuid: 67406b64-5b18-49d9-9795-da6076d00300
+>>>>>>> main
 langcode: en
 status: true
 dependencies:
   config:
+<<<<<<< HEAD
     - field.field.node.user_submission.field_original_image
     - field.field.node.user_submission.field_processed_images
+=======
+    - field.field.node.user_submission.field_background_image
+    - field.field.node.user_submission.field_drupal_handle
+    - field.field.node.user_submission.field_original_image
+    - field.field.node.user_submission.field_processed_image_1
+    - field.field.node.user_submission.field_processed_image_2
+    - field.field.node.user_submission.field_processed_image_3
+    - field.field.node.user_submission.field_processed_image_4
+>>>>>>> main
     - field.field.node.user_submission.field_user_email
     - node.type.user_submission
   module:
@@ -14,6 +28,26 @@ targetEntityType: node
 bundle: user_submission
 mode: default
 content:
+<<<<<<< HEAD
+=======
+  field_background_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_drupal_handle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+>>>>>>> main
   field_original_image:
     type: entity_reference_entity_view
     label: above
@@ -21,16 +55,53 @@ content:
       view_mode: default
       link: false
     third_party_settings: {  }
+<<<<<<< HEAD
     weight: 102
     region: content
   field_processed_images:
+=======
+    weight: 109
+    region: content
+  field_processed_image_1:
     type: entity_reference_entity_view
     label: above
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
+    weight: 110
+    region: content
+  field_processed_image_2:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_processed_image_3:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_processed_image_4:
+>>>>>>> main
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+<<<<<<< HEAD
     weight: 103
+=======
+    weight: 113
+>>>>>>> main
     region: content
   field_user_email:
     type: basic_string

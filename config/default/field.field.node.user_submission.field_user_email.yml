@@ -1,4 +1,4 @@
-uuid: 1216a6ba-e071-497e-9eb3-44c3cb8be646
+uuid: a57ba505-303c-4a8f-b89e-3f9b7a172615
 langcode: en
 status: true
 dependencies:
@@ -9,7 +9,7 @@ id: node.user_submission.field_user_email
 field_name: field_user_email
 entity_type: node
 bundle: user_submission
-label: 'User email'
+label: Email
 description: ''
 required: false
 translatable: false

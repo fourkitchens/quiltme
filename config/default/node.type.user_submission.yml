@@ -1,4 +1,4 @@
-uuid: adfa4dcf-3ce2-4630-8af0-5e0be773af35
+uuid: 276a4f9a-198f-4d13-ac18-fda7b81c6c64
 langcode: en
 status: true
 dependencies:
@@ -6,13 +6,12 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus:
-      - main
-    parent: 'main:'
+    available_menus: {  }
+    parent: ''
 name: 'User Submission'
 type: user_submission
 description: ''
 help: ''
 new_revision: true
-preview_mode: 1
-display_submitted: true
+preview_mode: 0
+display_submitted: false

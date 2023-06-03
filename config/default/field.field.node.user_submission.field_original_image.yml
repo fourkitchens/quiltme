@@ -1,4 +1,4 @@
-uuid: 1301eaea-c091-4d66-be2b-6f5d48bd80ad
+uuid: 1bb71573-f700-41f1-9144-e89cfc61a5c5
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ id: node.user_submission.field_original_image
 field_name: field_original_image
 entity_type: node
 bundle: user_submission
-label: 'Original image'
+label: 'Original Image'
 description: ''
 required: false
 translatable: false
