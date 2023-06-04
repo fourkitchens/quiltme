@@ -34,19 +34,25 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
 
   $image_file = File::load($image_media->field_media_image->target_id);
   $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $image_file->createFileUrl();
-  $picsart_upload = $picsart->uploadImage(['image_url' => $image_file_url]);
-
-  // Something went wrong.
-  if (empty($picsart_upload['image_id'])) {
-    return FALSE;
-  }
 
   $options = [
-    'image_id' => $picsart_upload['image_id'],
     'level' => 'l3',
     'email' => $form_state->getValue('field_user_email')[0]['value'],
     'node' => $node,
   ];
+
+  if (defined('PANTHEON_ENVIRONMENT')) {
+    $picsart_upload = $picsart->uploadImage(['image_url' => $image_file_url]);
+  }
+
+  // If the image upload url works, let's use that with image_id.
+  // Otherwise we'll go with image_url.
+  if (empty($picsart_upload['image_id'])) {
+    $options['image_url'] = $image_file_url;
+  }
+  else {
+    $options['image_id'] = $picsart_upload['image_id'];
+  }
 
   $random_pattern_numbers = array_rand(range(0, 28), 4);
 
