@@ -103,8 +103,8 @@ function quiltme_picsart_get_style_transfer_images_callback($options, &$context)
   $media_id = $picsart->getStyleTransferMediaId($options);
 
   $node->set($field_name, $media_id);
-  $node->save();
   $node->setPublished(TRUE);
+  $node->save();
 
   $context['results'][] = $media_id;
   $context['message'] = t('Created @title', ['@title' => $pattern_url]);
