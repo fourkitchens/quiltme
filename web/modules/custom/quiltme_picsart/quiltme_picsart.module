@@ -8,6 +8,7 @@
 use Drupal\media\Entity\Media;
 use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -27,9 +28,17 @@ function quiltme_picsart_form_node_form_alter(&$form, FormStateInterface &$form_
  * Custom submit function for user submission node bundle.
  */
 function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterface &$form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+
+  // Don't regenerate the images if we have them already.
+  for ($i = 1; $i <= 4; $i++) {
+    $field_name = "field_processed_image_{$i}";
+    if (isset($node->{$field_name}->target_id)) {
+      return;
+    }
+  }
 
   $picsart = \Drupal::service('quiltme_picsart.connector');
-  $node = $form_state->getFormObject()->getEntity();
   $image_media = Media::load($node->field_original_image->target_id);
 
   $image_file = File::load($image_media->field_media_image->target_id);
@@ -67,7 +76,7 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
   $i = 1;
   foreach ($random_pattern_numbers as $pattern_number) {
     $options['pattern_number'] = sprintf("%02d", $pattern_number);
-    $options['field_name'] = "field_processed_image_" . $i;
+    $options['field_name'] = "field_processed_image_{$i}";
     $batch['operations'][] = [
       'quiltme_picsart_get_style_transfer_images_callback', [$options],
     ];
@@ -118,4 +127,21 @@ function quiltme_picsart_get_style_transfer_images_finished_callback($success, $
     $message = t('Finished with an error.');
   }
   \Drupal::messenger()->addStatus($message);
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function quiltme_picsart_node_presave(NodeInterface $node) {
+  switch ($node->bundle()) {
+    // Get the URL of the chosen image and set it on field_chosen_image_url.
+    case 'user_submission':
+      $image_number = $node->get('field_chosen_image')->value;
+      $field_name = "field_processed_image_{$image_number}";
+      $image_media = Media::load($node->{$field_name}->target_id);
+      $image_file = File::load($image_media->field_media_image->target_id);
+      $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $image_file->createFileUrl();
+      $node->set('field_chosen_image_url', $image_file_url);
+      break;
+  }
 }
