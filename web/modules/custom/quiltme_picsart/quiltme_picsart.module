@@ -44,7 +44,7 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
   // Apply image style.
   $style = ImageStyle::load('quiltme_user_image');
   $image_file = File::load($image_media->field_media_image->target_id);
-  $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $style->buildUrl($image_file->uri->value);
+  $image_file_url = $style->buildUrl($image_file->uri->value);
 
   $options = [
     'level' => 'l3',
@@ -52,9 +52,10 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
     'node' => $node,
   ];
 
-  // If (defined('PANTHEON_ENVIRONMENT')) {.
-  // $picsart_upload = $picsart->uploadImage(['image_url' => $image_file_url]);.
-  // }.
+  if (defined('PANTHEON_ENVIRONMENT')) {
+    $picsart_upload = $picsart->uploadImage(['image_url' => $image_file_url]);
+  }
+
   // If the image upload url works, let's use that with image_id.
   // Otherwise we'll go with image_url.
   if (empty($picsart_upload['image_id'])) {
