@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.user_submission.field_user_email
     - node.type.user_submission
   module:
+    - options
     - user
 id: node.user_submission.default
 targetEntityType: node
@@ -83,13 +84,11 @@ content:
     weight: 113
     region: content
   field_selected_image:
-    type: entity_reference_entity_view
+    type: list_default
     label: above
-    settings:
-      view_mode: default
-      link: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 115
+    weight: 117
     region: content
   field_user_email:
     type: basic_string

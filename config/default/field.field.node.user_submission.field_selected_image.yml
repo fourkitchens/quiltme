@@ -1,11 +1,12 @@
-uuid: c244bb8c-6f9d-4106-8998-25d5f17e801c
+uuid: 532fd2be-90c9-4d54-970c-0df9b3113351
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_selected_image
-    - media.type.image
     - node.type.user_submission
+  module:
+    - options
 id: node.user_submission.field_selected_image
 field_name: field_selected_image
 entity_type: node
@@ -16,14 +17,5 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  handler: 'default:media'
-  handler_settings:
-    target_bundles:
-      image: image
-    sort:
-      field: _none
-      direction: ASC
-    auto_create: false
-    auto_create_bundle: ''
-field_type: entity_reference
+settings: {  }
+field_type: list_string
