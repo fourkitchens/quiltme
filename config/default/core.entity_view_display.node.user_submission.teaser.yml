@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.user_submission.field_processed_image_2
     - field.field.node.user_submission.field_processed_image_3
     - field.field.node.user_submission.field_processed_image_4
+    - field.field.node.user_submission.field_selected_image
     - field.field.node.user_submission.field_user_email
     - node.type.user_submission
   module:
@@ -33,4 +34,5 @@ hidden:
   field_processed_image_2: true
   field_processed_image_3: true
   field_processed_image_4: true
+  field_selected_image: true
   field_user_email: true

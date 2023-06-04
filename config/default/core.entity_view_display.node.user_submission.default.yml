@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.user_submission.field_processed_image_2
     - field.field.node.user_submission.field_processed_image_3
     - field.field.node.user_submission.field_processed_image_4
+    - field.field.node.user_submission.field_selected_image
     - field.field.node.user_submission.field_user_email
     - node.type.user_submission
   module:
@@ -80,6 +81,15 @@ content:
       link: false
     third_party_settings: {  }
     weight: 113
+    region: content
+  field_selected_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 115
     region: content
   field_user_email:
     type: basic_string

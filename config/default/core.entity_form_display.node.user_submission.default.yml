@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.user_submission.field_processed_image_2
     - field.field.node.user_submission.field_processed_image_3
     - field.field.node.user_submission.field_processed_image_4
+    - field.field.node.user_submission.field_selected_image
     - field.field.node.user_submission.field_user_email
     - node.type.user_submission
   module:
@@ -72,6 +73,13 @@ content:
   field_processed_image_4:
     type: media_library_widget
     weight: 15
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_selected_image:
+    type: media_library_widget
+    weight: 26
     region: content
     settings:
       media_types: {  }
