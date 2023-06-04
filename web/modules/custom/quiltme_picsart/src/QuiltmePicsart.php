@@ -98,15 +98,15 @@ class QuiltmePicsart {
 
     // Create image media.
     $image_media = Media::create([
-      'name' => t('@email--style-transfer', ['@email' => $options['email']]),
+      'name' => $options['email'] . '--style-transfer',
       'bundle' => 'image',
       'uid' => 1,
       'langcode' => 'en',
       'status' => 1,
       'field_media_image' => [
         'target_id' => $image->id(),
-        'alt' => t('@email--style-transfer', ['@email' => $options['email']]),
-        'title' => t('@email--style-transfer', ['@email' => $options['email']]),
+        'alt' => $options['email'] . '--style-transfer',
+        'title' => $options['email'] . '--style-transfer',
       ],
     ]);
     $image_media->save();
@@ -114,6 +114,12 @@ class QuiltmePicsart {
     return $image_media->id();
   }
 
+  /**
+   * Upload image method.
+   *
+   * @param array $options
+   *   The data to send along.
+   */
   public function uploadImage(array $options) : array {
 
     try {
@@ -124,25 +130,25 @@ class QuiltmePicsart {
           'X-Picsart-API-Key' => $this->apiKey,
         ],
         'form_params' => [
-          'image_url' => $options['image_url']
+          'image_url' => $options['image_url'],
         ],
-        ]);
-        if ($result) {
-          $result = json_decode($result->getBody()->getContents(), TRUE);
-          return $result['data'];
-        }
-        else {
-          return [
-            'message' => "Failed to upload",
-          ];
-        }
-    } catch(Exception $e) {
+      ]);
+      if ($result) {
+        $result = json_decode($result->getBody()->getContents(), TRUE);
+        return $result['data'];
+      }
+      else {
+        return [
+          'message' => "Failed to upload",
+        ];
+      }
+    }
+    catch (Exception $e) {
       return [
         'message' => "Failed to upload",
       ];
     }
   }
-
 
   /**
    * Make a http post to the PicsArt API and return the file URI.

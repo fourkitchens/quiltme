@@ -10,7 +10,7 @@ use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORM_ID_alter().
  */
 function quiltme_picsart_form_node_form_alter(&$form, FormStateInterface &$form_state, $form_id) {
   $node = $form_state->getFormObject()->getEntity();
@@ -35,7 +35,7 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
   $image_file = File::load($image_media->field_media_image->target_id);
   $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $image_file->createFileUrl();
   $picsart_upload = $picsart->uploadImage(['image_url' => $image_file_url]);
-  
+
   // Something went wrong.
   if (empty($picsart_upload['image_id'])) {
     return FALSE;
