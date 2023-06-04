@@ -1,0 +1,15 @@
+uuid: 6afa709e-a767-4ac7-9fd3-b44682ed9e91
+langcode: en
+status: true
+dependencies: {  }
+name: quiltme_user_image
+label: 'Quiltme user image'
+effects:
+  89ecdd22-b719-4986-8f04-2da926b1b5c2:
+    uuid: 89ecdd22-b719-4986-8f04-2da926b1b5c2
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 900
+      height: 900
+      anchor: center-center
