@@ -43,14 +43,14 @@ class QuiltmePicsart {
   protected FileRepositoryInterface $fileRepository;
 
   /**
-   * AFT settings configuration.
+   * Configuration.
    *
    * @var \Drupal\Core\Config\ImmutableConfig
    */
   protected ?ImmutableConfig $config;
 
   /**
-   * Constructor for AFTConnect.
+   * Constructor for dependency injection.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
    *   The config factory interface.
@@ -113,6 +113,36 @@ class QuiltmePicsart {
     // Return the media ID.
     return $image_media->id();
   }
+
+  public function uploadImage(array $options) : array {
+
+    try {
+      $result = $this->client->post('https://api.picsart.io/tools/1.0/upload', [
+        'headers' => [
+          'Accept' => 'application/json',
+          'Content-Type' => 'application/x-www-form-urlencoded',
+          'X-Picsart-API-Key' => $this->apiKey,
+        ],
+        'form_params' => [
+          'image_url' => $options['image_url']
+        ],
+        ]);
+        if ($result) {
+          $result = json_decode($result->getBody()->getContents(), TRUE);
+          return $result['data'];
+        }
+        else {
+          return [
+            'message' => "Failed to upload",
+          ];
+        }
+    } catch(Exception $e) {
+      return [
+        'message' => "Failed to upload",
+      ];
+    }
+  }
+
 
   /**
    * Make a http post to the PicsArt API and return the file URI.

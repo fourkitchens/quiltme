@@ -862,4 +862,4 @@ include __DIR__ . "/settings.pantheon.php";
  */
 $settings['config_sync_directory'] = '../config/default';
 
-$config['quiltme_picsart.api_settings']['api_key'] = 'DdN5jspTz9ycUTv9mlgZxDtc4M0z1as9';
+$config['quiltme_picsart.api_settings']['api_key'] = 'CFrayF4ePDAui3Uf012F51kAabYRkRLY';
