@@ -52,10 +52,9 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
     'node' => $node,
   ];
 
-//  if (defined('PANTHEON_ENVIRONMENT')) {
-//    $picsart_upload = $picsart->uploadImage(['image_url' => $image_file_url]);
-//  }
-
+  // If (defined('PANTHEON_ENVIRONMENT')) {.
+  // $picsart_upload = $picsart->uploadImage(['image_url' => $image_file_url]);.
+  // }.
   // If the image upload url works, let's use that with image_id.
   // Otherwise we'll go with image_url.
   if (empty($picsart_upload['image_id'])) {
