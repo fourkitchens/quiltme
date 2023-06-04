@@ -43,6 +43,7 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
 
   $options = [
     'image_id' => $picsart_upload['image_id'],
+    //'image_url' => 'https://pyxis.nymag.com/v1/imgs/c49/fa5/d43db44d60dee75b3ed58a3e57ef29d527-Vulturefest5333-1-copy.rvertical.w570.jpg',
     'level' => 'l3',
     'email' => $form_state->getValue('field_user_email')[0]['value'],
     'node' => $node,
@@ -69,15 +70,12 @@ function quiltme_picsart_custom_user_submission_submit(&$form, FormStateInterfac
   }
 
   batch_set($batch);
-
 }
 
 /**
  * Saves API generated images to a node.
  */
 function quiltme_picsart_get_style_transfer_images_callback($options, &$context) {
-
-  $results = [];
 
   $picsart = \Drupal::service('quiltme_picsart.connector');
   $node = $options['node'];
@@ -89,11 +87,10 @@ function quiltme_picsart_get_style_transfer_images_callback($options, &$context)
   $options['reference_image_url'] = $pattern_url;
 
   $media_id = $picsart->getStyleTransferMediaId($options);
-
-  $node->{$field_name}->target_id = $media_id;
+  
+  $node->set($field_name, $media_id);
   $node->save();
-
-  $results[] = $media_id;
+  $node->setPublished(true);
 
   $context['results'][] = $media_id;
   $context['message'] = t('Created @title', ['@title' => $pattern_url]);

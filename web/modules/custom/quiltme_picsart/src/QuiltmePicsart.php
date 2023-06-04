@@ -156,7 +156,7 @@ class QuiltmePicsart {
    * @return string
    *   The file url returned by PicsArt.
    */
-  private function getStyleTransferImageUrl(array $options) : string {
+  public function getStyleTransferImageUrl(array $options) : string {
     try {
       $result = $this->client->post('https://api.picsart.io/tools/1.0/styletransfer', [
         'headers' => [
