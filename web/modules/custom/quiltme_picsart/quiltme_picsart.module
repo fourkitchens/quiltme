@@ -102,8 +102,11 @@ function quiltme_picsart_get_style_transfer_images_callback($options, &$context)
 
   $media_id = $picsart->getStyleTransferMediaId($options);
 
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $vid = $entity_type_manager->getStorage('node')->getLatestRevisionId($node->id());
+  $node = $entity_type_manager->getStorage('node')->loadRevision($vid);
+
   $node->set($field_name, $media_id);
-  $node->setPublished(TRUE);
   $node->save();
 
   $context['results'][] = $media_id;
