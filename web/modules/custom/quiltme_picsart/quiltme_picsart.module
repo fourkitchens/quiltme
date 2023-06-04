@@ -136,12 +136,15 @@ function quiltme_picsart_node_presave(NodeInterface $node) {
   switch ($node->bundle()) {
     // Get the URL of the chosen image and set it on field_chosen_image_url.
     case 'user_submission':
-      $image_number = $node->get('field_chosen_image')->value;
-      $field_name = "field_processed_image_{$image_number}";
-      $image_media = Media::load($node->{$field_name}->target_id);
-      $image_file = File::load($image_media->field_media_image->target_id);
-      $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $image_file->createFileUrl();
-      $node->set('field_chosen_image_url', $image_file_url);
+      if ($image_number = $node->get('field_chosen_image')->value) {
+        $field_name = "field_processed_image_{$image_number}";
+        if ($mid = $node->{$field_name}->target_id) {
+          $image_media = Media::load($mid);
+          $image_file = File::load($image_media->field_media_image->target_id);
+          $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $image_file->createFileUrl();
+          $node->set('field_chosen_image_url', $image_file_url);
+        }
+      }
       break;
   }
 }
