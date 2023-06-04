@@ -10,10 +10,11 @@ dependencies:
     - field.field.node.user_submission.field_processed_image_2
     - field.field.node.user_submission.field_processed_image_3
     - field.field.node.user_submission.field_processed_image_4
+    - field.field.node.user_submission.field_processed_images
     - field.field.node.user_submission.field_user_email
     - node.type.user_submission
   module:
-    - media_library
+    - inline_entity_form
     - path
 id: node.user_submission.default
 targetEntityType: node
@@ -27,11 +28,22 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_background_image:
-    type: media_library_widget
+    type: inline_entity_form_complex
     weight: 10
     region: content
     settings:
-      media_types: {  }
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+      removed_reference: delete
     third_party_settings: {  }
   field_drupal_handle:
     type: string_textfield
@@ -42,39 +54,62 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_original_image:
-    type: media_library_widget
+    type: inline_entity_form_complex
     weight: 11
     region: content
     settings:
-      media_types: {  }
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+      removed_reference: delete
     third_party_settings: {  }
   field_processed_image_1:
-    type: media_library_widget
-    weight: 12
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_processed_image_2:
-    type: media_library_widget
-    weight: 13
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_processed_image_3:
-    type: media_library_widget
-    weight: 14
-    region: content
-    settings:
-      media_types: {  }
-    third_party_settings: {  }
-  field_processed_image_4:
-    type: media_library_widget
+    type: entity_reference_autocomplete
     weight: 15
     region: content
     settings:
-      media_types: {  }
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_processed_image_2:
+    type: entity_reference_autocomplete
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_processed_image_3:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_processed_image_4:
+    type: entity_reference_autocomplete
+    weight: 14
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_user_email:
     type: email_default
@@ -134,4 +169,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_processed_images: true
