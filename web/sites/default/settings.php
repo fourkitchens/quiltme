@@ -506,7 +506,7 @@ $settings['update_free_access'] = FALSE;
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-# $settings['file_public_path'] = 'sites/default/files';
+$settings['file_public_path'] = 'sites/default/files';
 
 /**
  * Additional public file schemes:
@@ -851,9 +851,16 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
  */
 include __DIR__ . "/settings.pantheon.php";
 
+// Dropzone settings.
+//$config['system.file']['path']['temporary'] = 'sites/default/files/tmp';
+//$settings['file_private_path'] = 'sites/default/files/private';
+//$settings['file_temp_path'] = 'sites/default/files/tmp';
+$config['dropzonejs.settings']['tmp_upload_scheme'] = 'private';
+//$settings['http_client_config']['timeout'] = 60;
+
 /**
  * Set config sync directory.
  */
 $settings['config_sync_directory'] = '../config/default';
 
-$config['quiltme_picsart.api_settings']['api_key'] = 'DdN5jspTz9ycUTv9mlgZxDtc4M0z1as9';
+$config['quiltme_picsart.api_settings']['api_key'] = 'CFrayF4ePDAui3Uf012F51kAabYRkRLY';

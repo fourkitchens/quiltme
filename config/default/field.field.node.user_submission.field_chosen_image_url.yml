@@ -1,0 +1,19 @@
+uuid: bed93378-b073-4aa8-81a3-10cca7989bce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chosen_image_url
+    - node.type.user_submission
+id: node.user_submission.field_chosen_image_url
+field_name: field_chosen_image_url
+entity_type: node
+bundle: user_submission
+label: 'Chosen Image URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

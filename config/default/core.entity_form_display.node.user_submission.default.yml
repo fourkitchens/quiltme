@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.user_submission.field_background_image
+    - field.field.node.user_submission.field_chosen_image
+    - field.field.node.user_submission.field_chosen_image_url
     - field.field.node.user_submission.field_drupal_handle
     - field.field.node.user_submission.field_original_image
     - field.field.node.user_submission.field_processed_image_1
@@ -26,12 +27,19 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_background_image:
-    type: media_library_widget
-    weight: 10
+  field_chosen_image:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_chosen_image_url:
+    type: string_textfield
+    weight: 27
     region: content
     settings:
-      media_types: {  }
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_drupal_handle:
     type: string_textfield
@@ -43,35 +51,35 @@ content:
     third_party_settings: {  }
   field_original_image:
     type: media_library_widget
-    weight: 11
+    weight: 10
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_processed_image_1:
     type: media_library_widget
-    weight: 12
+    weight: 11
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_processed_image_2:
     type: media_library_widget
-    weight: 13
+    weight: 12
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_processed_image_3:
     type: media_library_widget
-    weight: 14
+    weight: 13
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_processed_image_4:
     type: media_library_widget
-    weight: 15
+    weight: 14
     region: content
     settings:
       media_types: {  }
@@ -134,4 +142,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_processed_images: true

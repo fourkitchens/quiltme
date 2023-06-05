@@ -1,16 +1,17 @@
-uuid: 07c80186-d891-4bde-9b2e-8365d5c3b7bb
+uuid: f8696833-ad0f-45bc-a380-d90e7ae45260
 langcode: en
 status: true
 dependencies:
   module:
-    - media
     - node
-id: node.field_background_image
-field_name: field_background_image
+id: node.field_chosen_image_url
+field_name: field_chosen_image_url
 entity_type: node
-type: entity_reference
+type: string
 settings:
-  target_type: media
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
 cardinality: 1
