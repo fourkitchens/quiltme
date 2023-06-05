@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.user_submission.field_chosen_image
     - field.field.node.user_submission.field_chosen_image_url
     - field.field.node.user_submission.field_drupal_handle
+    - field.field.node.user_submission.field_email_sent
     - field.field.node.user_submission.field_original_image
     - field.field.node.user_submission.field_processed_image_1
     - field.field.node.user_submission.field_processed_image_2
@@ -30,6 +31,7 @@ hidden:
   field_chosen_image: true
   field_chosen_image_url: true
   field_drupal_handle: true
+  field_email_sent: true
   field_original_image: true
   field_processed_image_1: true
   field_processed_image_2: true

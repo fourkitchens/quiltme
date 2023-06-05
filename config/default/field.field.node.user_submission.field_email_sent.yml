@@ -1,0 +1,23 @@
+uuid: 8d571813-b265-42ff-96b2-5f3ebc4d1ae1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email_sent
+    - node.type.user_submission
+id: node.user_submission.field_email_sent
+field_name: field_email_sent
+entity_type: node
+bundle: user_submission
+label: 'Email sent'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

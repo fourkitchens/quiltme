@@ -10,8 +10,6 @@ use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\image\Entity\ImageStyle;
-use Drupal\Core\Mail\MailManagerInterface;
-use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Html;
 
 /**
@@ -177,7 +175,7 @@ function quiltme_picsart_node_presave(NodeInterface $node) {
 function quiltme_picsart_send_user_email(array $options) {
   $mailManager = \Drupal::service('plugin.manager.mail');
   $module = 'quiltme_picsart';
-  $key = 'quiltme_user_email'; // Replace with Your key
+  $key = 'quiltme_user_email';
   $to = \Drupal::currentUser()->getEmail();
   $params['message'] = "Hello {$options['name']},
     <p>Thanks for visiting the Four Kitchens booth at Druplacon 2023 - we hope you enjoyed the Quiltme experience!</p>
@@ -187,22 +185,24 @@ function quiltme_picsart_send_user_email(array $options) {
     <p>The Web Chefs</p>";
   $params['title'] = "Here's your Quiltme image from Four Kitchens";
   $langcode = \Drupal::currentUser()->getPreferredLangcode();
-  $send = true;
+  $send = TRUE;
 
   $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-  if ($result['result'] != true) {
+  if (!$result['result']) {
     $message = t('There was a problem sending your email notification to @email.', ['@email' => $to]);
     \Drupal::messenger()->addError($message);
     \Drupal::logger('mail-log')->error($message);
     return;
   }
 
-  $message = t('An email notification has been sent to @email ', ['@email' => $to]);
+  $message = t('An email notification has been sent to @email', ['@email' => $to]);
   \Drupal::messenger()->addMessage($message);
   \Drupal::logger('mail-log')->notice($message);
 }
 
-/** * Implements hook_mail(). */
+/**
+ * Implements hook_mail().
+ */
 function quiltme_picsart_mail($key, &$message, $params) {
   $options = [
     'langcode' => $message['langcode'],
