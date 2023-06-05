@@ -157,6 +157,7 @@ function quiltme_picsart_node_presave(NodeInterface $node) {
           $node->set('field_chosen_image_url', $image_file_url);
           if ($node->get('field_email_sent')->value != 1) {
             $email_opts = [
+              'to' => $node->get('field_user_email')->value,
               'image_url' => $image_file_url,
               'name' => $node->getTitle(),
             ];
@@ -176,7 +177,7 @@ function quiltme_picsart_send_user_email(array $options) {
   $mailManager = \Drupal::service('plugin.manager.mail');
   $module = 'quiltme_picsart';
   $key = 'quiltme_user_email';
-  $to = \Drupal::currentUser()->getEmail();
+  $to = $options['to'];
   $params['message'] = "Hello {$options['name']},
     <p>Thanks for visiting the Four Kitchens booth at Druplacon 2023 - we hope you enjoyed the Quiltme experience!</p>
     <p><a href='{$options['image_url']}'>Click here</a> to view and download your selected image.</p>
