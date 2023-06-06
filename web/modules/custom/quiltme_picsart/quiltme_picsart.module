@@ -105,7 +105,9 @@ function quiltme_picsart_get_style_transfer_images_callback($options, &$context)
   $field_name = $options['field_name'];
 
   // Should be an absolute URL to the images.
-  $pattern_url = "http://dev-4k-quiltme.pantheonsite.io/themes/custom/quiltme/images/patterns/pattern-{$options['pattern_number']}.png";
+  $host = \Drupal::request()->getSchemeAndHttpHost();
+
+  $pattern_url = "{$host}/themes/custom/quiltme/images/patterns/pattern-{$options['pattern_number']}.png";
 
   $options['reference_image_url'] = $pattern_url;
 
