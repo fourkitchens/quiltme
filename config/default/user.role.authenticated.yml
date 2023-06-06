@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - dropzonejs
+    - graphql
     - media
     - system
 _core:
@@ -14,5 +15,8 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'bypass graphql field security'
   - 'dropzone upload files'
+  - 'execute graphql requests'
+  - 'execute persisted graphql requests'
   - 'view media'

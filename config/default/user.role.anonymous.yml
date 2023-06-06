@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - graphql
     - media
     - system
 _core:
@@ -13,4 +14,7 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
+  - 'bypass graphql field security'
+  - 'execute graphql requests'
+  - 'execute persisted graphql requests'
   - 'view media'
