@@ -854,7 +854,7 @@ include __DIR__ . "/settings.pantheon.php";
 // Dropzone settings.
 //$config['system.file']['path']['temporary'] = 'sites/default/files/tmp';
 //$settings['file_private_path'] = 'sites/default/files/private';
-//$settings['file_temp_path'] = 'sites/default/files/tmp';
+$settings['file_temp_path'] = 'sites/default/files/private/tmp';
 $config['dropzonejs.settings']['tmp_upload_scheme'] = 'private';
 //$settings['http_client_config']['timeout'] = 60;
 

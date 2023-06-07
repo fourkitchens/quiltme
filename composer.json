@@ -163,11 +163,6 @@
                 }
             },
             "omit-defaults": false
-        },
-        "patches": {
-            "drupal/dropzonejs": {
-                "https://www.drupal.org/project/dropzonejs/issues/2916330": "https://www.drupal.org/files/issues/2020-11-04/2916330-dropzonejs-8.x-2.x-temporary-files.patch"
-            }
         }
     },
     "scripts": {
