@@ -58,6 +58,7 @@
         "drupal/role_delegation": "1.x-dev",
         "drupal/simple_sitemap": "^4.0@alpha",
         "drupal/slick_browser": "2.x-dev",
+        "drupal/smtp": "^1.2",
         "drupal/spamspan": "^1.2",
         "drupal/taxonomy_manager": "^2.0.4",
         "drupal/token": "^1.9",

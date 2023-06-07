@@ -10,6 +10,7 @@ use Drupal\file\Entity\File;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\image\Entity\ImageStyle;
+use Drupal\Component\Utility\Html;
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -104,7 +105,9 @@ function quiltme_picsart_get_style_transfer_images_callback($options, &$context)
   $field_name = $options['field_name'];
 
   // Should be an absolute URL to the images.
-  $pattern_url = "http://dev-4k-quiltme.pantheonsite.io/themes/custom/quiltme/images/patterns/pattern-{$options['pattern_number']}.png";
+  $host = \Drupal::request()->getSchemeAndHttpHost();
+
+  $pattern_url = "{$host}/themes/custom/quiltme/images/patterns/pattern-{$options['pattern_number']}.png";
 
   $options['reference_image_url'] = $pattern_url;
 
@@ -154,8 +157,64 @@ function quiltme_picsart_node_presave(NodeInterface $node) {
           $image_file = File::load($image_media->field_media_image->target_id);
           $image_file_url = \Drupal::request()->getSchemeAndHttpHost() . $image_file->createFileUrl();
           $node->set('field_chosen_image_url', $image_file_url);
+          if ($node->get('field_email_sent')->value != 1) {
+            $email_opts = [
+              'to' => $node->get('field_user_email')->value,
+              'image_url' => $image_file_url,
+              'name' => $node->getTitle(),
+            ];
+            quiltme_picsart_send_user_email($email_opts);
+            $node->set('field_email_sent', 1);
+          }
         }
       }
+      break;
+  }
+}
+
+/**
+ * Custom send email function.
+ */
+function quiltme_picsart_send_user_email(array $options) {
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'quiltme_picsart';
+  $key = 'quiltme_user_email';
+  $to = $options['to'];
+  $params['message'] = "Hello {$options['name']},
+    <p>Thanks for visiting the Four Kitchens booth at Druplacon 2023 - we hope you enjoyed the Quiltme experience!</p>
+    <p><a href='{$options['image_url']}'>Click here</a> to view and download your selected image.</p>
+    <p>If you'd like to learn more about Four Kitchens and what we do, feel free to check out our <a href='https://fourkitchens.com'>website</a>.</p>
+    <p>Thanks and have a great day!</p>
+    <p>The Web Chefs</p>";
+  $params['title'] = "Here's your Quiltme image from Four Kitchens";
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+
+  $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+  if (!$result['result']) {
+    $message = t('There was a problem sending your email notification to @email.', ['@email' => $to]);
+    \Drupal::messenger()->addError($message);
+    \Drupal::logger('mail-log')->error($message);
+    return;
+  }
+
+  $message = t('An email notification has been sent to @email', ['@email' => $to]);
+  \Drupal::messenger()->addMessage($message);
+  \Drupal::logger('mail-log')->notice($message);
+}
+
+/**
+ * Implements hook_mail().
+ */
+function quiltme_picsart_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+  switch ($key) {
+    case 'quiltme_user_email':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('@title', ['@title' => $params['title']], $options);
+      $message['body'][] = Html::escape($params['message']);
       break;
   }
 }

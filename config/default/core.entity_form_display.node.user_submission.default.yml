@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.user_submission.field_chosen_image
     - field.field.node.user_submission.field_chosen_image_url
     - field.field.node.user_submission.field_drupal_handle
+    - field.field.node.user_submission.field_email_sent
     - field.field.node.user_submission.field_original_image
     - field.field.node.user_submission.field_processed_image_1
     - field.field.node.user_submission.field_processed_image_2
@@ -48,6 +49,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_email_sent:
+    type: boolean_checkbox
+    weight: 28
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_original_image:
     type: media_library_widget
